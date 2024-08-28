@@ -1,0 +1,57 @@
+//write a program in html and js to pass a length and width as a parameter and show it's result on the screen
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculate Rectangle Area</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Rectangle Area Calculator</h1>
+    <input type="number" id="lengthInput" placeholder="Enter length" step="any">
+    <input type="number" id="widthInput" placeholder="Enter width" step="any">
+    <button onclick="calculateArea()">Calculate Area</button>
+    <div id="result"></div>
+
+    <script>
+        function calculateArea() {
+            // Get the values from the input fields
+            const length = parseFloat(document.getElementById('lengthInput').value);
+            const width = parseFloat(document.getElementById('widthInput').value);
+
+            // Get the <div> element by its ID
+            const resultElement = document.getElementById('result');
+
+            // Validate the inputs and calculate the area
+            if (!isNaN(length) && !isNaN(width) && length > 0 && width > 0) {
+                const area = length * width;
+                resultElement.textContent = `The area of the rectangle is ${area} square units.`;
+            } else {
+                resultElement.textContent = 'Please enter valid positive numbers for both length and width.';
+            }
+        }
+    </script>
+</body>
+</html>

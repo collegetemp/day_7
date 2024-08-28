@@ -1,0 +1,63 @@
+//  write a program in thml using js with the help of try and catch
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Try and Catch Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Divide Two Numbers</h1>
+    <form id="divisionForm">
+        <label for="numerator">Numerator:</label>
+        <input type="text" id="numerator" name="numerator"><br><br>
+        <label for="denominator">Denominator:</label>
+        <input type="text" id="denominator" name="denominator"><br><br>
+        <button type="button" onclick="performDivision()">Divide</button>
+    </form>
+    <p id="result"></p>
+    <p id="errorMessage" class="error"></p>
+
+    <script>
+        function performDivision() {
+            // Clear previous results and errors
+           // document.getElementById('result').textContent = '';
+          //  document.getElementById('errorMessage').textContent = '';
+
+            try {
+// Get user inputs
+            const num =parseFloat(document.getElementById('numerator').value);
+            const denom= parseFloat(document.getElementById('denominator').value);
+
+
+                // Check for invalid input
+                if (isNaN(num) || isNaN(denom)) {
+                    throw new Error('Both inputs must be valid numbers.');
+                }
+
+                // Check for division by zero
+                if (denom === 0) {
+                    throw new Error('Division by zero is not allowed.');
+                }
+
+                // Perform division
+                const result = num / denom;
+                document.getElementById('result').textContent = `Result: ${result}`;
+
+            } catch (error) {
+                // Handle errors
+                document.getElementById('errorMessage').textContent = `Error: ${error.message}`;
+            }
+        }
+    </script>
+</body>
+</html>

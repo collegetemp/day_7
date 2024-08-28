@@ -1,0 +1,50 @@
+//the user type his name and it wil great with user name 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalized Greeting</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="greeting">Please enter your name</h1>
+    <input type="text" id="nameInput" placeholder="Your name">
+    <button onclick="displayGreeting()">Greet Me!</button>
+
+    <script>
+        function displayGreeting() {
+            // Get the value from the input field
+            const name = document.getElementById('nameInput').value;
+
+            // Get the <h1> element by its ID
+            const greetingElement = document.getElementById('greeting');
+
+            // Check if the input is not empty
+            if (name.trim() !== '') {
+                // Set the text content of the <h1> element to a personalized greeting
+                greetingElement.textContent = `Hello, ${name}! Welcome to our website!`;
+            } else {
+                // Prompt the user to enter a name if the input is empty
+                greetingElement.textContent = 'Please enter your name.';
+            }
+        }
+    </script>
+</body>
+</html>
